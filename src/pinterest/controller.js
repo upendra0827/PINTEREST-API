@@ -106,10 +106,21 @@ const updatePinterest = (req, res) => {
 // GET COMMENTS BY ID 
 
 const getCommentById = (req, res) => {
-    const id = parseInt(req.params.id)
+    const id = parseInt(req.params.postid)
     pool.query(queries.getCommentById, [id], (error, results) => {
         if (error) throw error
         res.status(200).json(results.rows)
+    })
+}
+
+// ADD COMMENTS 
+
+const addComments = (req, res) => {
+    const { postid, commentid, data } = req.body
+
+    pool.query(queries.addComments, [postid, data], (error, results) => {
+        if (error) console.log(error)
+        res.status(201).send("row created successfully")
     })
 }
 
