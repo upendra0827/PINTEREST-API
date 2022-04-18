@@ -11,7 +11,7 @@ router.delete("/posts/:id", controller.removePinterest)
 router.get("/users", controller.getUsers)
 router.get("/users/:id", controller.getUserById)
 router.delete("/users/:id", controller.removeUserById)
-router.get("/posts/comments/:id", controller.getCommentById)
-router.post("/posts/comments/:id", controller.addComments)
+router.get("/posts/:id/comments", controller.getCommentById)
+router.post("/posts/:id/comments", controller.addComments)
 
 module.exports = router

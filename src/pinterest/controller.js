@@ -120,7 +120,7 @@ const addComments = (req, res) => {
 
     pool.query(queries.addComments, [postid, data], (error, results) => {
         if (error) console.log(error)
-        res.status(201).send("row created successfully")
+        res.status(201).send("comment added successfully")
     })
 }
 
