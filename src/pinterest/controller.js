@@ -133,5 +133,6 @@ module.exports = {
     getUsers,
     getUserById,
     removeUserById,
-    getCommentById
+    getCommentById,
+    addComments
 }
