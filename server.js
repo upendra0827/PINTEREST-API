@@ -13,7 +13,7 @@ app.listen(PORT, () => {
 app.use(express.json())
 
 app.use(function (req, res, next) {
-  const corsWhiteList = ['http://localhost:3000/', "https://project-pinterest-api.herokuapp.com"]
+  const corsWhiteList = ['http://localhost:3000', "https://project-pinterest-api.herokuapp.com"]
 
   if (corsWhiteList.indexOf(req.headers.origin) !== -1) {
 
