@@ -2,7 +2,7 @@ const getPinterest = "SELECT * FROM pinteresttable"
 const getPinterestById = "SELECT * FROM pinteresttable WHERE postid=$1"
 const addPinterest = "INSERT INTO pinteresttable (userid, image, video, caption) VALUES ($1, $2, $3, $4)"
 const removePinterest = "DELETE FROM pinteresttable WHERE postid = $1"
-const updatePinterest = "UPDATE pinteresttable SET userid=$1, image=$2, video=%3, caption=$4 WHERE postid=$5"
+const updatePinterest = "UPDATE pinteresttable SET userid=$1, image=$2, video=$3, caption=$4 WHERE postid=$5"
 
 const getUsers = "SELECT * FROM users"
 const getUserById = "SELECT * FROM users WHERE userid=$1"
