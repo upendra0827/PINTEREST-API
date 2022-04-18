@@ -17,7 +17,3 @@ app.get("/", (req, res) => {
 })
 
 app.use('/api/v1/pinterest', pinterestRoutes)
-
-// app.listen(PORT, () => {
-//     console.log(`app listening on ${PORT}`)
-// })
