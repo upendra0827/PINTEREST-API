@@ -2,7 +2,13 @@ const express = require('express')
 const pinterestRoutes = require('./src/pinterest/routes')
 
 const app = express()
-const port = 3000
+// const port = 3000
+
+const PORT = process.env.PORT || 3300;
+app.listen(PORT, () => {
+  console.log("Server is running in PORT : ", PORT);
+});
+
 
 app.use(express.json())
 
