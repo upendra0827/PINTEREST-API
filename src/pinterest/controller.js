@@ -86,6 +86,7 @@ const getUserById = (req, res) => {
 // TO GET USER BY EMAIL
 
 const getUserByMail = (req, res) => {
+    console.log(req)
     const { email} = req.params.email
     pool.query(queries.getUserById, [email], (error, results) => {
         if (error) throw error
