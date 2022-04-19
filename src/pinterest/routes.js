@@ -13,7 +13,7 @@ router.delete("/posts/:id", controller.removePinterest)
 router.get("/users", controller.getUsers)
 router.get("/users/:id", controller.getUserById)
 router.post("/users", controller.addUser)
-router.get("/users/email", controller.getUserByMail)
+router.get("/users?email", controller.getUserByMail)
 
 router.delete("/users/:id", controller.removeUserById)
 router.get("/posts/:id/comments", controller.getCommentById)
