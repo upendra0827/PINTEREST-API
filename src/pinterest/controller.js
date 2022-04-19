@@ -83,6 +83,17 @@ const getUserById = (req, res) => {
     })
 }
 
+// TO GET USER BY EMAIL
+
+const getUserByMail = (req, res) => {
+    const { email,password } = req.body
+    // const id = parseInt(req.params.id)
+    pool.query(queries.getUserById, [email], (error, results) => {
+        if (error) throw error
+        res.status(200).json(results.rows)
+    })
+}
+
 
 // TO DELETE USER BY ID
 
@@ -148,5 +159,6 @@ module.exports = {
     removeUserById,
     getCommentById,
     addComments,
-    addUser
+    addUser,
+    getUserByMail
 }
