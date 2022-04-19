@@ -60,6 +60,19 @@ const getUsers = (req, res) => {
 }
 
 
+// ADD USER 
+
+const addUser = (req, res) => {
+    const { name, email, password } = req.body
+
+    pool.query(queries.addUser, [name, email, password], (error, results) => {
+        if (error) console.log(error)
+        res.status(201).send("User created successfully")
+    })
+}
+
+
+
 // TO GET USERBYID
 
 const getUserById = (req, res) => {
@@ -134,5 +147,6 @@ module.exports = {
     getUserById,
     removeUserById,
     getCommentById,
-    addComments
+    addComments,
+    addUser
 }

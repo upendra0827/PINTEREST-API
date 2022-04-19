@@ -8,8 +8,12 @@ router.post("/posts", controller.addPinterest)
 router.get("/posts/:id", controller.getPinterestById)
 router.put("/posts/:id", controller.updatePinterest)
 router.delete("/posts/:id", controller.removePinterest)
+
+
 router.get("/users", controller.getUsers)
 router.get("/users/:id", controller.getUserById)
+router.post("/users", controller.addUser)
+
 router.delete("/users/:id", controller.removeUserById)
 router.get("/posts/:id/comments", controller.getCommentById)
 router.post("/posts/:id/comments", controller.addComments)
