@@ -65,9 +65,15 @@ const getUsers = (req, res) => {
 const addUser = (req, res) => {
     const { name, email, password } = req.body
 
-    pool.query(queries.addUser, [name, email, password], (error, results) => {
-        if (error) console.log(error)
-        res.status(201).send("User created successfully")
+    pool.query(queries.checkEmailExists, [email], (error, results) => {
+        if (results.rows.length) {
+            res.send('Email already exists')
+        }
+
+        pool.query(queries.addUser, [name, email, password], (error, results) => {
+            if (error) console.log(error)
+            res.status(201).send("User created successfully") 
+        })
     })
 }
 
@@ -87,7 +93,7 @@ const getUserById = (req, res) => {
 
 const getUserByMail = (req, res) => {
     console.log(req)
-    const { email} = req.body.email
+    const { email } = req.body.email
     pool.query(queries.getUserById, [email], (error, results) => {
         if (error) throw error
         res.status(200).json(results.rows)
@@ -114,7 +120,7 @@ const removeUserById = (req, res) => {
 
 const updatePinterest = (req, res) => {
     const id = parseInt(req.params.id)
-    const { postid, userid, image, video,caption } = req.body
+    const { postid, userid, image, video, caption } = req.body
 
     pool.query(queries.getPinterestById, [id], (error, results) => {
         const noMatch = !results.rows.length
