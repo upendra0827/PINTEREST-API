@@ -70,10 +70,12 @@ const addUser = (req, res) => {
             res.send('Email already exists')
         }
 
-        pool.query(queries.addUser, [name, email, password], (error, results) => {
-            if (error) console.log(error)
-            res.status(201).send("User created successfully") 
-        })
+        else {
+            pool.query(queries.addUser, [name, email, password], (error, results) => {
+                if (error) console.log(error)
+                res.status(201).send("User created successfully")
+            })
+        }
     })
 }
 
