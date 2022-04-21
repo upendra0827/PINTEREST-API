@@ -67,7 +67,8 @@ const addUser = (req, res) => {
 
     pool.query(queries.checkEmailExists, [email], (error, results) => {
         if (results.rows.length) {
-            res.send('Email already exists')
+            // res.send('Email already exists')
+            res.status(200).json(results.rows)
         }
 
         else {
@@ -78,8 +79,6 @@ const addUser = (req, res) => {
         }
     })
 }
-
-
 
 // TO GET USERBYID
 
