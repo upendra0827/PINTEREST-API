@@ -3,7 +3,7 @@ const pinterestRoutes = require('./src/pinterest/routes')
 
 const app = express()
 // const port = 3000
-const { cloudinary } = require('../../utils/cloudinary')
+const { cloudinary } = require('./utils/cloudinary')
 app.use(express.json({
     limit: '50mb'
 }))
