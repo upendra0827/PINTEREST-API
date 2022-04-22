@@ -4,7 +4,7 @@ const pinterestRoutes = require('./src/pinterest/routes')
 const app = express()
 // const port = 3000
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server is running in PORT : ", PORT);
 });
@@ -13,7 +13,7 @@ app.listen(PORT, () => {
 app.use(express.json())
 
 app.use(function (req, res, next) {
-  const corsWhiteList = ['http://localhost:3001', "https://project-pinterest-api.herokuapp.com"]
+  const corsWhiteList = ['http://localhost:3000', "https://project-pinterest-api.herokuapp.com"]
 
   if (corsWhiteList.indexOf(req.headers.origin) !== -1) {
 
