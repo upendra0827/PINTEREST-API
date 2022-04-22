@@ -6,7 +6,7 @@ const updatePinterest = "UPDATE pinteresttable SET userid=$1, image=$2, video=$3
 
 const checkEmailExists = 'SELECT * FROM users WHERE email = $1'
 const getUsers = "SELECT * FROM users"
-const getUserById = "SELECT * FROM users WHERE userid=$1"
+// const getUserById = "SELECT * FROM users WHERE userid=$1"
 const removeUserById = "DELETE FROM users WHERE userid = $1"
 const addUser = "INSERT INTO users (name, email, password) VALUES ($1, $2, $3)"
 const getUserByMail = "SELECT * FROM users where email=$1"
@@ -21,7 +21,7 @@ module.exports = {
     removePinterest,
     updatePinterest,
     getUsers,
-    getUserById,
+    // getUserById,
     removeUserById,
     getCommentById,
     addComments,

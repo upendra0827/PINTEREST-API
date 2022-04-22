@@ -11,7 +11,7 @@ router.delete("/posts/:id", controller.removePinterest)
 
 
 router.get("/users", controller.getUsers)
-router.get("/users/:id", controller.getUserById)
+// router.get("/users/:id", controller.getUserById)
 router.post("/users", controller.addUser)
 router.get("/users?email", controller.getUserByMail)
 

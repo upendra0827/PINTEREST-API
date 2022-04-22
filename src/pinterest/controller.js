@@ -89,13 +89,13 @@ const addUser = (req, res) => {
 
 // TO GET USERBYID
 
-const getUserById = (req, res) => {
-    const id = parseInt(req.params.id)
-    pool.query(queries.getUserById, [id], (error, results) => {
-        if (error) throw error
-        res.status(200).json(results.rows)
-    })
-}
+// const getUserById = (req, res) => {
+//     const id = parseInt(req.params.id)
+//     pool.query(queries.getUserById, [id], (error, results) => {
+//         if (error) throw error
+//         res.status(200).json(results.rows)
+//     })
+// }
 
 // TO GET USER BY EMAIL
 
@@ -169,7 +169,7 @@ module.exports = {
     removePinterest,
     updatePinterest,
     getUsers,
-    getUserById,
+    // getUserById,
     removeUserById,
     getCommentById,
     addComments,
