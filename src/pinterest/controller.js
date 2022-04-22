@@ -2,13 +2,7 @@ const pool = require('../../db')
 const queries = require('./queries')
 const express = require('express')
 const app = express()
-const { cloudinary } = require('../../utils/cloudinary')
-app.use(express.json({
-    limit: '50mb'
-}))
-app.use(express.urlencoded({
-    limit: '50mb', extended: true
-}))
+
 
 // GET THE PINTEREST TABLE 
 
@@ -43,19 +37,6 @@ const addPinterest = (req, res) => {
 
 // TO POST AN IMAGE
 
-app.post('/api/upload', async (req, res) => {
-    try {
-        const fileStr = req.body.data
-        const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-            upload_preset: 'dev_setups',
-        })
-        console.log(uploadedResponse)
-        res.json({ msg: 'yayayaya' })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json({ err: 'something went wrong' })
-    } 
-})
 
 
 // REMOVE ROW IN PINTEREST 

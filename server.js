@@ -3,6 +3,13 @@ const pinterestRoutes = require('./src/pinterest/routes')
 
 const app = express()
 // const port = 3000
+const { cloudinary } = require('../../utils/cloudinary')
+app.use(express.json({
+    limit: '50mb'
+}))
+app.use(express.urlencoded({
+    limit: '50mb', extended: true
+}))
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
@@ -11,6 +18,21 @@ app.listen(PORT, () => {
 
 
 app.use(express.json())
+
+app.post('/api/upload', async (req, res) => {
+  try {
+      const fileStr = req.body.data
+      const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+          upload_preset: 'dev_setups',
+      })
+      console.log(uploadedResponse)
+      res.json({ msg: 'yayayaya' })
+  } catch (err) {
+      console.log(err)
+      res.status(500).json({ err: 'something went wrong' })
+  } 
+})
+
 
 app.use(function (req, res, next) {
   const corsWhiteList = ['http://localhost:3001', "https://project-pinterest-api.herokuapp.com"]
