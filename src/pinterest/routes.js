@@ -18,5 +18,6 @@ router.get("/users?email", controller.getUserByMail)
 router.delete("/users/:id", controller.removeUserById)
 router.get("/posts/:id/comments", controller.getCommentById)
 router.post("/posts/:id/comments", controller.addComments)
+router.post('/api/upload', controller.app.post)
 
 module.exports = router
